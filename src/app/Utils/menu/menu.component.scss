@@ -1,0 +1,96 @@
+ .iconToggle {
+     color: #ffffff;
+     font-size: 20px;
+     float: right !important;
+     right: 10px;
+     padding-top: 5px;
+     position: absolute;
+ }
+ 
+ .layout-sidebar {
+     position: fixed;
+     z-index: 999;
+     left: 0;
+     top: 70px;
+     height: calc(100% - 70px);
+     width: 210px;
+     height: 100vh;
+     border-right: 1px solid var(--surface-d);
+     user-select: none;
+     transition: transform 0.4s cubic-bezier(0.05, 0.74, 0.2, 0.99);
+     display: flex;
+     flex-direction: column;
+     // background: linear-gradient(to bottom, #D4DBE1, #2983BE);
+     background-color: #154378;
+ }
+ 
+ .layout-sidebar .layout-menu {
+     /*padding: 0 1rem;*/
+     margin-top: 20px;
+     overflow-y: auto;
+     flex-grow: 1;
+ }
+ 
+ .layout-sidebar .layout-menu .menu-category:first-child {
+     border-top: 0 none;
+     padding-top: 1rem;
+ }
+ 
+ .layout-sidebar .layout-menu .menu-category {
+     display: block;
+     color: var(--text-color-secondary);
+     font-weight: 600;
+     user-select: none;
+     padding: 1.5rem 0 1rem 0;
+     font-size: 0.857rem;
+     text-transform: uppercase;
+     border-top: 1px solid var(--surface-d);
+ }
+ 
+ .layout-sidebar .layout-menu .menu-items {
+     padding: 0 0 1rem 0;
+     display: flex;
+     flex-direction: column;
+ }
+ 
+ .layout-sidebar .layout-menu .menu-items a {
+     color: #ffffff;
+     display: flex;
+     align-items: center;
+     padding: 1rem;
+     border-radius: 3px;
+     cursor: pointer;
+     border-width: thin;
+ }
+ 
+ .layout-sidebar .layout-menu .menu-items a:hover {
+     background: rgba(14, 48, 86, 0.6);
+ }
+ 
+ .layout-sidebar .layout-menu .menu-items .active {
+     background: rgba(14, 48, 86, 0.6);
+ }
+ 
+ a {
+     text-decoration: none;
+ }
+ 
+ @media screen and (max-width: 960px) {
+     .layout-sidebar {
+         top: 0;
+         z-index: 999;
+         height: 100%;
+         transform: translateX(-100%);
+     }
+ }
+ 
+ @media screen and (max-width: 960px) {
+     .layout-sidebar.active {
+         transform: translateX(0);
+     }
+ }
+ 
+ p-menubar {
+     background: #3c515b !important;
+     color: #f8f9fa !important;
+ }

@@ -1,0 +1,52 @@
+<div class="content_login d-flex flex-column bd-highlight h-100 flex-grow">
+    <div class="h-100 flex-grow mb-3">
+        <div class="row h-100 flex-grow">
+            <div class="col-md-7 d-flex justify-content-center align-items-center flex-column">
+                <div class=" contents_header" style="padding-bottom: 1rem;">
+                </div>
+            </div>
+            <div class="col-md-5 mb-3">
+                <div class="row contents  mt-3 mb-3 mr-3 ml-3 h-100 flex-grow">
+                    <div class="" style="margin: auto 0; width: 100%;">
+                        <div class="col-md-12  align-items-center">
+                            <div class=" contents_header" style="padding-bottom: 3rem;position: relative;left: 40%;">
+                                <img src="./assets/img/logo.png" alt="Logo MINAGRI" class="img-fluid">
+                            </div>
+                            <div class="contents_form ">
+                                <div class="content-email" *ngIf="!verPassword">
+                                    <div style="position: relative;left: 44%;">
+                                        <div class="form-group  m-0" style="padding-bottom: 1rem">
+                                            <label for="username">Nombre de usuario</label>
+                                        </div>
+                                        <div class="form-group  m-0" style="padding-bottom: 1rem">
+                                            <input type="text" autocomplete="off" class="form-control contents_form_input" [(ngModel)]="paramsLogin.usuario" placeholder="Ingrese usuario">
+                                        </div>
+                                        <div class="form-group  m-0" style="padding-bottom: 1rem">
+                                            <label for="password">Password</label>
+                                        </div>
+                                        <div class="form-group  m-0" style="padding-bottom: 3rem">
+                                            <input type="password" autocomplete="off" class="form-control contents_form_input" [(ngModel)]="paramsLogin.pass" placeholder="Ingrese password">
+                                        </div>
+                                    </div>
+
+                                    <div class="row" style="position: relative;left: 44%;">
+
+                                        <div class="col-3">
+                                            <div class="p-2 w-100" style="padding-bottom: 1rem;">
+                                                <input type="submit" (click)="validarUsuario();" value="Iniciar sesión" class="btn text-white w-100 contents_form_btn">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex justify-content-center align-items-center flex-column">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<p-toast></p-toast>

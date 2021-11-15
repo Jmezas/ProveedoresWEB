@@ -1,0 +1,92 @@
+
+
+$color_white: #fff;
+$color_primary: #7bb6e6;
+$color_black:#000;
+$spacing: 20px;
+
+//url("../../../../assets/img/login_fondo.png")
+.content_login {
+//  background-image: linear-gradient(87deg, #1717174f 0, #06081e61 100%);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100%;
+  .contents{
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: $spacing;
+    &_header{
+      &_title {
+        font-style: normal;
+        font-weight: bold;
+        font-size: 30px ;
+        line-height: 37px;
+        color: $color_white;
+        text-align: center;
+      }
+    }
+    &_form{
+      &_label{
+        font-style: normal;
+        font-weight: bold;
+        font-size: 16px;
+        line-height: 20px;
+        color: $color_white;
+        &--link{
+          font-size: 16px;
+          line-height: 16px;
+          color: $color_white;
+          text-decoration: none;
+        }
+      }
+      &_input{
+        background: #000000bf;
+        font-size: 16px;
+        border: 0;
+        height: 47px;
+        color: $color_white;
+        border-radius: 5px;
+      }
+      &_btn{
+        height: 46px;
+        background: $color_primary;
+        box-sizing: border-box;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        font-weight: bold;
+        font-size: 16px;
+        line-height: 20px;
+        border-radius: 5px;
+        &:hover{
+          background: darken($color_primary,10%);
+        }
+      }
+      &_btn_regresar{
+        height: 46px;
+        background: $color_white;
+        box-sizing: border-box;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        font-weight: bold;
+        font-size: 16px;
+        border-radius: 5px;
+        line-height: 20px;
+        color: $color_primary !important;
+        &:hover{
+          background: darken($color_white,10%);
+        }
+      }
+    }
+  }
+}
+
+::-webkit-input-placeholder {
+  color: $color_white;font-weight: 500;
+  font-family: 'Montserrat', "Roboto", sans-serif;
+} /* WebKit */
+::-ms-input-placeholder{
+  color: $color_white;font-weight: 500;
+  font-family: 'Montserrat', "Roboto", sans-serif;
+}
+::-moz-placeholder {
+  color: $color_white; font-weight: 500;
+  font-family: 'Montserrat', "Roboto", sans-serif;
+} /* Firefox 19+ */

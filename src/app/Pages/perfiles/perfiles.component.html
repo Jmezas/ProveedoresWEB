@@ -1,0 +1,40 @@
+<!-- <app-menu-top></app-menu-top> -->
+<app-menu></app-menu>
+<div class="layout-content">
+    <h1 style="text-align: center;padding-top: 10px;">Creacion de Perfil</h1>
+    <p-divider> </p-divider>
+
+    <p-tabView header="Datos generales">
+        <div class="centrov">
+
+            <div class="p-col-12">
+                <span class="p-float-label">
+                    <input id="float-input" type="text" pInputText   [(ngModel)]="nombre" name="nombre"> 
+                    <label for="float-input">Nombre Perfil</label>
+                </span>
+            </div>
+        </div>
+        <div class="centrov">
+            <div class="p-col-12">
+                <div class="form-group row p-grid">
+                    <label for="sedeselecbuscar" class="centrov p-col-3 p-sm-3 col-form-label">
+                        Area :
+                    </label>
+                    <div class="p-col-8 p-sm-8">
+                        <p-dropdown [options]="ListArea" [(ngModel)]="nomArea" name="sForma" optionLabel="name" [filter]="true" filterBy="name" [showClear]="true" placeholder="Seleccionar area">
+                        </p-dropdown>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </p-tabView>
+
+    <div class="centrov p-grid">
+
+        <div class="p-col-1">
+            <button pButton type="button" label="Volver" (click)="Volver()" class="p-button-danger colorbutton"></button>
+            <button pButton type="button" label="Grabar" (click)="Registrar()" class="p-button-success colorbuttonGuardar" icon="pi pi-save"></button>
+        </div>
+    </div>
+</div>
+<p-toast></p-toast>

@@ -1,0 +1,26 @@
+<app-menu></app-menu>
+<div class="layout-content">
+    <h1 style="text-align: center;padding-top: 10px;">creacion de estado evaluacion</h1>
+    <p-divider> </p-divider>
+
+    <p-tabView header="Datos generales">
+        <div class="centrov">
+
+            <div class="p-col-12">
+                <span class="p-float-label">
+                    <input id="float-input" type="text" pInputText   [(ngModel)]="nombre" name="nombre"> 
+                    <label for="float-input">Nombre evaluacion</label>
+                </span>
+            </div>
+        </div>
+    </p-tabView>
+
+    <div class="centrov p-grid">
+
+        <div class="p-col-1">
+            <button pButton type="button" label="Volver" (click)="Volver()" class="p-button-danger colorbutton"></button>
+            <button pButton type="button" label="Grabar" (click)="Registrar()" class="p-button-success colorbuttonGuardar" icon="pi pi-save"></button>
+        </div>
+    </div>
+</div>
+<p-toast></p-toast>

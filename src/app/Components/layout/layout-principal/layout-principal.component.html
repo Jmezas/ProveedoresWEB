@@ -1,0 +1,24 @@
+<ng-container *ngIf="pbConfig.useLayout == true">
+    <div class="main">        
+       <!-- <app-sidebar [openSidebar]="openSidebar"></app-sidebar>-->
+        <div [ngClass]="openSidebar ? 'page-wrapper' : 'page-wrapper collapse'">
+          <app-topbar (toggleSidebar)="toggleSidebar()"></app-topbar>
+          <div class="page">     
+            <div class="container-fluid">
+                <div class="page__content  position-relative">
+                  <div class="page__content-data position-absolute" style="padding-top: 15px;width: 100%;">
+  
+                    <router-outlet></router-outlet> 
+  
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div >
+    </div>
+  </ng-container>
+  
+  <ng-container *ngIf="pbConfig.useLayout == false">
+    <router-outlet></router-outlet> 
+  </ng-container>
+  
