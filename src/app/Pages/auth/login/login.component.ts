@@ -13,43 +13,42 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  paramsLogin: LoginRequest = new LoginRequest(); 
-  verPassword:boolean = false;
-  btnShowverLogin:boolean = false;
+  paramsLogin: LoginRequest = new LoginRequest();
+  verPassword: boolean = false;
+  btnShowverLogin: boolean = false;
   imagenFondo: string = '';
   constructor(
-     private _configService: ConfigService
-    ,private messageService: MessageService
-    ,private service : AuthService
-    ,private dialog: MatDialog
-    ,private router:Router
+    private _configService: ConfigService
+    , private messageService: MessageService
+    , private service: AuthService
+    , private dialog: MatDialog
+    , private router: Router
   ) { }
 
   ngOnInit(): void {
   }
 
-  validarUsuario(){
+  validarUsuario() {
     //this.dialog.open(LoadingComponent,{ disableClose: true });
-    this.service.validarUsuario(this.paramsLogin).subscribe((response:any)=>{
-      console.log(response)
-     
-      if(response.Value =="1"){
-        this.messageService.add({severity:"info", summary: "", detail: "Ingreso correctamente las credenciales"});
-        
-        this.router.navigateByUrl('/auth/inicio');
-
-      }else{
-        this.messageService.add({severity:"warn", summary: "", detail: "Usuario o clave Incorecta"});
-      }
-     // this.dialog.closeAll();
+    this.service.login(this.paramsLogin).subscribe((response: any) => { 
+      this.router.navigateByUrl('/auth/inicio'); 
+      /*
+            if(response.Value =="1"){
+              this.messageService.add({severity:"info", summary: "", detail: "Ingreso correctamente las credenciales"});
+              
+              this.router.navigateByUrl('/auth/inicio');
+      
+            }else{
+              this.messageService.add({severity:"warn", summary: "", detail: "Usuario o clave Incorecta"});
+            }
+         */
 
     },
-    (error)=>{
-     // this.dialog.closeAll();
-      console.error(error);
-      this.messageService.add({severity:"warn", summary: "", detail: error});
-    });
+      (error) => {
+
+        this.messageService.add({ severity: "info", summary: "", detail: "sin permisos" });
+      });
   }
 
-  
+
 }

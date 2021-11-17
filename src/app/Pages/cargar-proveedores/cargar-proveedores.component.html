@@ -1,0 +1,180 @@
+<app-menu></app-menu>
+
+<div class="layout-content">
+    <h1 style="text-align: center;padding-top: 10px;">Cargar Proveedores</h1>
+    <p-divider> </p-divider>
+</div>
+<p-tabView header="Datos generales">
+    <div class="form-group row p-grid">
+        <div class="p-col-8 p-sm-8">
+            <label for="archivo" class="centrov p-col-2 p-sm-2 col-form-label">
+            selecionar archivo:
+        </label>
+
+            <input id="my-file-selector" type="file" (change)="fileUploda($event)" name="uploadExcel" accept=".xls,.xlsx">
+        </div>
+
+        <div class="p-col-4 p-sm-4">
+            <button pButton type="button" label="Grabar" (click)="guardar()" class="p-button-success colorbuttonGuardar" icon="pi pi-save"></button>
+        </div>
+    </div>
+
+
+</p-tabView>
+<div class="p-grid">
+    <p-table #dt [value]="listareg" [(selection)]="selectedCustomers" dataKey="idIdProceso" styleClass="p-datatable-customers" [rowHover]="true" [rows]="10" [showCurrentPageReport]="true" [rowsPerPageOptions]="[10,25,50]" [loading]="loading" [paginator]="true"
+        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [filterDelay]="0">
+        <ng-template pTemplate="caption">
+            <div class="table-header">
+                Lista de proveedores
+                <!-- <span class="p-input-icon-left">
+                    <i class="pi pi-search"></i>
+                    <input pInputText type="text" placeholder="Busqueda Global" />
+                </span> -->
+            </div>
+        </ng-template>
+        <ng-template pTemplate="header">
+            <tr>
+                <th style="width: 3rem">
+                    <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                </th>
+                <th pSortableColumn="ruc">
+                    <div class="p-d-flex p-jc-between p-ai-center">
+                        RUC
+                        <!-- <p-sortIcon field="idIdProceso"></p-sortIcon>
+                        <p-columnFilter type="text" field="idIdProceso" display="menu" class="p-ml-auto">
+                        </p-columnFilter> -->
+                    </div>
+                </th>
+                <th pSortableColumn="razon_social">
+                    <div class="p-d-flex p-jc-between p-ai-center">
+                        RAZON SOCIAL
+                        <!-- <p-sortIcon field="des_razonsocialTercero"></p-sortIcon>
+                        <p-columnFilter type="text" field="des_razonsocialTercero" display="menu" class="p-ml-auto">
+                        </p-columnFilter> -->
+                    </div>
+                </th>
+                <th pSortableColumn="cotegoria">
+                    <div class="p-d-flex p-jc-between p-ai-center">
+                        CATEGORIA
+                        <!-- <p-sortIcon field="montoPenalidad"></p-sortIcon>
+                        <p-columnFilter type="text" field="montoPenalidad" display="menu" class="p-ml-auto">
+                        </p-columnFilter> -->
+                    </div>
+                </th>
+                <th pSortableColumn="comprador">
+                    <div class="p-d-flex p-jc-between p-ai-center">
+                        COMPRADOR
+                        <!-- <p-sortIcon field="cantidadDescuento"></p-sortIcon>
+                        <p-columnFilter type="text" field="cantidadDescuento" display="menu" class="p-ml-auto">
+                        </p-columnFilter> -->
+                    </div>
+                </th>
+                <th pSortableColumn="gasto">
+                    <div class="p-d-flex p-jc-between p-ai-center">
+                        GASTO PROVEEDOR
+                        <!-- <p-sortIcon field="fechaInicioVigencia"></p-sortIcon>
+                        <p-columnFilter type="date" field="fechaInicioVigencia" display="menu" class="p-ml-auto">
+                        </p-columnFilter> -->
+                    </div>
+                </th>
+                <th pSortableColumn="evaluador">
+                    <div class="p-d-flex p-jc-between p-ai-center">
+                        EVALUADOR
+                        <!-- <p-sortIcon field="expediente"></p-sortIcon>
+                        <p-columnFilter type="text" field="expediente" display="menu" class="p-ml-auto">
+                        </p-columnFilter> -->
+                    </div>
+                </th>
+                <th pSortableColumn="fechaR">
+                    <div class="p-d-flex p-jc-between p-ai-center">
+                        FECHA CADUCIDAD R.
+                        <!-- <p-sortIcon field="usuarioRegistro"></p-sortIcon>
+                        <p-columnFilter type="text" field="usuarioRegistro" display="menu" class="p-ml-auto">
+                        </p-columnFilter> -->
+                    </div>
+                </th>
+                <th pSortableColumn="fechaE">
+                    <div class="p-d-flex p-jc-between p-ai-center">
+                        FECHA CADUCIDAD E.
+                        <!-- <p-sortIcon field="usuarioRegistro"></p-sortIcon>
+                        <p-columnFilter type="text" field="usuarioRegistro" display="menu" class="p-ml-auto">
+                        </p-columnFilter> -->
+                    </div>
+                </th>
+                <th pSortableColumn="telefono">
+                    <div class="p-d-flex p-jc-between p-ai-center">
+                        TELEFONO
+                        <!-- <p-sortIcon field="usuarioRegistro"></p-sortIcon>
+                        <p-columnFilter type="text" field="usuarioRegistro" display="menu" class="p-ml-auto">
+                        </p-columnFilter> -->
+                    </div>
+                </th>
+                <th pSortableColumn="correo">
+                    <div class="p-d-flex p-jc-between p-ai-center">
+                        CORREO
+                        <!-- <p-sortIcon field="usuarioRegistro"></p-sortIcon>
+                        <p-columnFilter type="text" field="usuarioRegistro" display="menu" class="p-ml-auto">
+                        </p-columnFilter> -->
+                    </div>
+                </th>
+                <th pSortableColumn="grupo">
+                    <div class="p-d-flex p-jc-between p-ai-center">
+                        GRUPO
+                        <!-- <p-sortIcon field="usuarioRegistro"></p-sortIcon>
+                        <p-columnFilter type="text" field="usuarioRegistro" display="menu" class="p-ml-auto">
+                        </p-columnFilter> -->
+                    </div>
+                </th>
+
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-customer>
+            <tr class="p-selectable-row">
+                <td>
+                    <p-tableCheckbox [value]="customer"></p-tableCheckbox>
+                </td>
+                <td>
+                    {{customer.ruc}}
+                </td>
+                <td>
+                    {{customer.razon_social}}
+                </td>
+                <td>
+                    {{customer.categoria}}
+                </td>
+                <td>
+                    {{customer.comprador}}
+                </td>
+                <td>
+                    {{customer.evaluador}}
+                </td>
+                <td>
+                    {{customer.gasto_proveedor}}
+                </td>
+                <td>
+                    {{customer.fecha_caducidad| date: 'dd/MM/yyyy'}}
+                </td>
+                <td>
+                    {{customer.fecha_caducidad_1 | date: 'dd/MM/yyyy' }}
+                </td>
+                <td>
+                    {{customer.telefono }}
+                </td>
+                <td>
+                    {{customer.correo }}
+                </td>
+                <td>
+                    {{customer.grupo }}
+                </td>
+
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="emptymessage">
+            <tr>
+                <td colspan="12">No se encontraron Mutuos Procesos</td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>
+<p-toast></p-toast>

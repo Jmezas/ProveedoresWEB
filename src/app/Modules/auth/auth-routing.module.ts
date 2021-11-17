@@ -9,28 +9,30 @@ import { EstadoComponent } from '../../Pages/estado/estado.component';
 import { PerfilesComponent } from '../../Pages/perfiles/perfiles.component';
 import { EvaluacionComponent } from '../../Pages/evaluacion/evaluacion.component';
 import { MensajeriaComponent } from '../../Pages/mensajeria/mensajeria.component';
-import {InicioComponent}from'./../../Pages/inicio/inicio.component';
-import {UsuarioComponent}from'./../../Pages/usuario/usuario.component';
+import { CargarProveedoresComponent } from '../../Pages/cargar-proveedores/cargar-proveedores.component'; 
+import { InicioComponent } from './../../Pages/inicio/inicio.component';
+import { UsuarioComponent } from './../../Pages/usuario/usuario.component';
 
 const routes: Routes = [
   {
-    path:'',
-    children:[
-      {path:'login', component:LoginComponent},
-      {path:'inicio', component:InicioComponent},
-      {path:'usuario',component:UsuarioComponent},
-      {path:'categoria',component:CategoriaComponent},
-      {path:'grupo',component:GrupoComponent},
-      {path:'area',component:AreaComponent},
-      {path:'estado',component:EstadoComponent},
-      {path:'perfil',component:PerfilesComponent},
-      {path:'evaluacion',component:EvaluacionComponent},
-      {path:'mensaje',component:MensajeriaComponent},
-      {path:'**', redirectTo:'login'}
+    path: '',
+    children: [
+      { path: 'login', component: LoginComponent },
+      { path: 'inicio', component: InicioComponent },
+      { path: 'usuario', component: UsuarioComponent },
+      { path: 'categoria', component: CategoriaComponent },
+      { path: 'grupo', component: GrupoComponent },
+      { path: 'area', component: AreaComponent },
+      { path: 'estado', component: EstadoComponent },
+      { path: 'perfil', component: PerfilesComponent },
+      { path: 'evaluacion', component: EvaluacionComponent },
+      { path: 'mensaje', component: MensajeriaComponent },
+      { path: 'carga', component: CargarProveedoresComponent },
+      { path: '**', redirectTo: 'login' }
     ]
-  }
-  ,
+  },
  
+
 ];
 
 @NgModule({

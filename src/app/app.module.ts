@@ -25,20 +25,23 @@ import { CategoriaComponent } from './Pages/categoria/categoria.component';
 import { GrupoComponent } from './Pages/grupo/grupo.component';
 import { ToastModule } from 'primeng/toast';
 import { EstadoComponent } from './Pages/estado/estado.component';
-import {DropdownModule} from 'primeng/dropdown';
+import { DropdownModule } from 'primeng/dropdown';
 import { AreaComponent } from './Pages/area/area.component';
 import { PerfilesComponent } from './Pages/perfiles/perfiles.component';
-import {MenubarModule} from 'primeng/menubar';
-import {CardModule} from 'primeng/card';
+import { MenubarModule } from 'primeng/menubar';
+import { CardModule } from 'primeng/card';
+import {TableModule} from 'primeng/table';
 import { EvaluacionComponent } from './Pages/evaluacion/evaluacion.component';
 import { MensajeriaComponent } from './Pages/mensajeria/mensajeria.component';
+import { CargarProveedoresComponent } from './Pages/cargar-proveedores/cargar-proveedores.component'; 
+import { ResetPaswordComponent } from './Pages/auth/seguridad/reset-pasword/reset-pasword.component';
 @NgModule({
   declarations: [
     AppComponent,
     LayoutPrincipalComponent,
     TopbarComponent,
     SidebarComponent,
-    InicioComponent, MenuComponent, MenuTopComponent, UsuarioComponent, CategoriaComponent, GrupoComponent, EstadoComponent, AreaComponent, PerfilesComponent, EvaluacionComponent, MensajeriaComponent
+    InicioComponent, MenuComponent, MenuTopComponent, UsuarioComponent, CategoriaComponent, GrupoComponent, EstadoComponent, AreaComponent, PerfilesComponent, EvaluacionComponent, MensajeriaComponent, CargarProveedoresComponent,  ResetPaswordComponent
   ],
   imports: [
     BrowserModule,
@@ -55,7 +58,8 @@ import { MensajeriaComponent } from './Pages/mensajeria/mensajeria.component';
     ToastModule,
     DropdownModule,
     MenubarModule,
-    CardModule
+    CardModule,
+    TableModule,
   ],
   providers: [
 

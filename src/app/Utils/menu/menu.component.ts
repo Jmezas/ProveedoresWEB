@@ -32,7 +32,8 @@ export class MenuComponent implements OnInit {
           },
           {
             label: 'carga d.',
-            icon: 'pi pi-fw pi-align-right'
+            icon: 'pi pi-fw pi-align-right',
+            command:(click)=>{this.router.navigate(['/auth/carga']);} 
           },
 
         ]
