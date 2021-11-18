@@ -31,17 +31,7 @@ export class LoginComponent implements OnInit {
   validarUsuario() {
     //this.dialog.open(LoadingComponent,{ disableClose: true });
     this.service.login(this.paramsLogin).subscribe((response: any) => { 
-      this.router.navigateByUrl('/auth/inicio'); 
-      /*
-            if(response.Value =="1"){
-              this.messageService.add({severity:"info", summary: "", detail: "Ingreso correctamente las credenciales"});
-              
-              this.router.navigateByUrl('/auth/inicio');
-      
-            }else{
-              this.messageService.add({severity:"warn", summary: "", detail: "Usuario o clave Incorecta"});
-            }
-         */
+      this.router.navigateByUrl('/auth/inicio');  
 
     },
       (error) => {
@@ -49,6 +39,9 @@ export class LoginComponent implements OnInit {
         this.messageService.add({ severity: "info", summary: "", detail: "sin permisos" });
       });
   }
-
+  
+  envio(){
+    this.router.navigateByUrl('/seguridad/envioCorreo');  
+  }
 
 }

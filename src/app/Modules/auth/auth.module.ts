@@ -5,7 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthRoutingModule } from './auth-routing.module';
 import { ToastModule } from 'primeng/toast';
 import { ConfirmationService } from 'primeng/api';
-
+import { ButtonModule } from "primeng/button";
 
 @NgModule({
   declarations: [
@@ -17,6 +17,7 @@ import { ConfirmationService } from 'primeng/api';
     ReactiveFormsModule,
     AuthRoutingModule,
     ToastModule,
+    ButtonModule
   ],
   providers: [
     ConfirmationService
