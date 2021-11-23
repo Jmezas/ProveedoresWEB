@@ -12,34 +12,31 @@
                             <div class=" contents_header" style="padding-bottom: 3rem;position: relative;left: 40%;">
                                 <img src="./assets/img/logo.png" alt="Logo MINAGRI" class="img-fluid">
                             </div>
-                            <div class="contents_form ">
+                            <div class="contents_form " > 
                                 <div class="content-email" *ngIf="!verPassword">
                                     <div style="position: relative;left: 44%;">
                                         <div class="form-group  m-0" style="padding-bottom: 1rem">
                                             <label for="username">Nombre de usuario</label>
                                         </div>
                                         <div class="form-group  m-0" style="padding-bottom: 1rem">
-                                            <input type="text" autocomplete="off" class="form-control contents_form_input" [(ngModel)]="paramsLogin.usuario" placeholder="Ingrese usuario">
+                                            <input type="text" autocomplete="off" class="form-control contents_form_input" [(ngModel)]="paramsLogin.usuario" placeholder="Ingrese usuario"  (keyup.enter)="validarUsuario()">
                                         </div>
                                         <div class="form-group  m-0" style="padding-bottom: 1rem">
                                             <label for="password">Password</label>
                                         </div>
                                         <div class="form-group  m-0" style="padding-bottom: 3rem">
-                                            <input type="password" autocomplete="off" class="form-control contents_form_input" [(ngModel)]="paramsLogin.pass" placeholder="Ingrese password">
+                                            <input type="password" autocomplete="off" class="form-control contents_form_input" [(ngModel)]="paramsLogin.pass" placeholder="Ingrese password" (keyup.enter)="validarUsuario()">
                                         </div>
                                         <div class="form-group  m-0" style="padding-bottom: 1rem">
-                                            <button pButton type="button" label="¿olvidastes contraseña?" (click)="envio()" class="p-button-link"></button>
+                                            <button pButton type="button" label="¿Olvidaste contraseña?" (click)="envio()" class="p-button-link"></button>
                                         </div>
                                         <div class="col-3">
                                             <div class="p-2 w-100" style="padding-bottom: 1rem;">
                                                 <input type="submit" (click)="validarUsuario();" value="Iniciar sesión" class="btn text-white w-100 contents_form_btn">
                                             </div>
                                         </div>
-                                    </div>
-
-
-                                </div>
-
+                                    </div> 
+                                </div> 
                                 <div class="d-flex justify-content-center align-items-center flex-column">
                                 </div>
                             </div>

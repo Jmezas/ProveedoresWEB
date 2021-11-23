@@ -3,6 +3,8 @@ import { MantenimientoService } from '../../Services/mantenimiento.service';
 import { MessageService } from 'primeng/api';
 import { usuario } from '../../Models/Usuario'; 
 import { Router } from '@angular/router';
+import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
+import { CustomValidators } from 'src/app/Models/Validaddor';
 interface Combo {
   name?: string,
   code?: string,
@@ -22,13 +24,16 @@ export class UsuarioComponent implements OnInit {
   correo:string|undefined
 
   nomPerfil:any[]=[]
-  
-  
-  ListPerfil: Combo[] = [];
 
-
+  displayBasic: boolean;
+  selectedCustomers: any[] = [];
+  loading: boolean = false;
+  listaToal:any[]=[]
+  public frmSignup: FormGroup;
+  ListPerfil: Combo[] = []; 
   constructor( private apiService:MantenimientoService
-    ,private messageService: MessageService,private router:Router) { }
+    ,private messageService: MessageService,private router:Router
+    ,private fb: FormBuilder) { }
 
   ngOnInit(): void {
     let parametro=2;
@@ -38,7 +43,35 @@ export class UsuarioComponent implements OnInit {
         this.ListPerfil.push({ code: e.id, name: e.descripcion ,id: e.id  });
       });
 
-    }) 
+    })
+    
+    this.lista();
+    this.createSignupForm()
+  }
+
+  createSignupForm() {
+    this.frmSignup = this.fb.group({
+      usuario:[null, Validators.required],
+      nombre:[null, Validators.required],
+
+      correo: [null, Validators.compose([
+        Validators.email,
+        Validators.required])
+     ],
+     nomPerfil:[null, Validators.required],
+     password:[null,Validators.compose([
+      Validators.required,
+      CustomValidators.patternValidator(/\d/, { hasNumber: true }),
+      CustomValidators.patternValidator(/[A-Z]/, { hasCapitalCase: true }), 
+      CustomValidators.patternValidator(/[a-z]/, { hasSmallCase: true }), 
+      CustomValidators.patternValidator(/[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/, { hasSpecialCharacters: true }),
+      Validators.minLength(8)])
+    ],
+    confirmPassword: [null, Validators.compose([Validators.required])]
+    },
+    {
+      validator: CustomValidators.passwordMatchValidator
+    })
   }
 
   Volver(){ 
@@ -48,21 +81,36 @@ export class UsuarioComponent implements OnInit {
   Registrar(){
 
     let data: usuario = {};
-    data.nombre=this.nombre
-    data.correo=this.correo
-    data.usuario=this.usuario
-    data.pass=this.passward
-    data.perfil=this.nomPerfil
+    let datos=this.frmSignup.value;
+    data.nombre=datos.nombre
+    data.correo=datos.correo
+    data.usuario=datos.usuario
+    data.pass=datos.password
+    data.perfil=datos.nomPerfil
 
     console.log(data)
 
     this.apiService.CreateUsuario(data).subscribe((resp:any)=>{
-      console.log(resp)
-      console.log(resp.Value)
-      this.messageService.add({severity:resp.status, summary: "", detail:resp.Value});
-      this.nombre=''; 
+      this.frmSignup.reset();
+      this.messageService.add({severity:resp.status, summary: "", detail:resp.Value}); 
+      this.displayBasic = false;
     })
   }
-
-
+  lista(){
+   
+    this.apiService.GetListaUsuarios().subscribe((rep:any)=>{
+     
+      this.listaToal=rep
+      
+      console.log(this.listaToal)
+    })
+  }
+  showBasicDialog() {
+    this.displayBasic = true;
 }
+
+ 
+  
+}
+
+

@@ -1,27 +1,104 @@
-<!-- <app-menu-top></app-menu-top> -->
 <app-menu></app-menu>
 <div class="layout-content">
-    <h1 style="text-align: center;padding-top: 10px;">Creacion de estado</h1>
-    <p-divider> </p-divider>
+    <h1 style="text-align: center;padding-top: 10px;">Estado</h1>
 
+    
+    <p-divider> </p-divider>
+<div class="p-col-12">
+    <div class="p-grid">
+        <div class="form-group row p-grid">
+            
+                <button pButton (click)="Volver()" icon="pi pi-external-link" label="regresar" class="p-button-danger colorbutton"></button>
+                <button pButton (click)="showBasicDialog()" icon="pi pi-external-link" label="crear" class="p-button-danger colorbuttonGuardar"></button>
+            
+            
+        </div>
+ 
+    </div>
+</div>
+
+    <div class="p-col-12">
+        <div class="p-grid">
+           <p-table #dt [value]="listaToal" [(selection)]="selectedCustomers" dataKey="id" styleClass="p-datatable-customers" [rowHover]="true" [rows]="10" 
+           [showCurrentPageReport]="true" [rowsPerPageOptions]="[10,25,50]" [loading]="loading" [paginator]="true"
+           currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [filterDelay]="0">
+           <ng-template pTemplate="caption">
+               <div class="table-header">
+                   Lista de Estado
+                   <!-- <span class="p-input-icon-left">
+                       <i class="pi pi-search"></i>
+                       <input pInputText type="text" placeholder="Busqueda Global" />
+                   </span> -->
+               </div>
+           </ng-template>
+           <ng-template pTemplate="header">
+               <tr>
+                   <th style="width: 3rem">
+                       <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                   </th>
+                   <th pSortableColumn="ruc">
+                       <div class="p-d-flex p-jc-between p-ai-center">
+                           id 
+                       </div>
+                   </th>
+                   <th pSortableColumn="Nombre">
+                       <div class="p-d-flex p-jc-between p-ai-center">
+                          Nombre 
+                       </div>
+                   </th>
+                   
+               </tr>
+           </ng-template>
+           <ng-template pTemplate="body" let-customer>
+               <tr class="p-selectable-row">
+                   <td>
+                       <p-tableCheckbox [value]="customer"></p-tableCheckbox>
+                   </td>
+                   <td>
+                       {{customer.id}}
+                   </td>
+                   <td>
+                       {{customer.nombre}}
+                   </td>
+                  
+                     
+   
+               </tr>
+           </ng-template>
+           <ng-template pTemplate="emptymessage">
+               <tr>
+                   <td colspan="12">No se encontraron</td>
+               </tr>
+           </ng-template>
+       </p-table>
+   
+       </div>
+       </div>
+ 
+   
+ 
+</div>
+
+
+<p-dialog header="Creacion de estado" [(visible)]="displayBasic" [style]="{width: '50vw'}" [baseZIndex]="10000">
     <p-tabView header="Datos generales">
         <div class="centrov">
 
             <div class="p-col-12">
-                <span class="p-float-label">
-                    <input id="float-input" type="text" pInputText   [(ngModel)]="nombre" name="nombre"> 
-                    <label for="float-input">Nombre estado</label>
-                </span>
+                <div class="form-group row p-grid">
+                    <label for="sedeselecbuscar" class="centrov p-col-3 p-sm-3 col-form-label">
+                        Nombre:
+                    </label>
+                    <div class="p-col-8 p-sm-8">
+                        <input id="float-input" type="text" pInputText   [(ngModel)]="nombre" name="nombre"> 
+                    </div>
+                </div> 
             </div>
         </div>
     </p-tabView>
-
-    <div class="centrov p-grid">
-
-        <div class="p-col-1">
-            <button pButton type="button" label="Volver" (click)="Volver()" class="p-button-danger colorbutton"></button>
-            <button pButton type="button" label="Grabar" (click)="Registrar()" class="p-button-success colorbuttonGuardar" icon="pi pi-save"></button>
-        </div>
-    </div>
-</div>
+    <ng-template pTemplate="footer">
+        <button pButton type="button" label="Volver" (click)="displayBasic=false"  class="p-button-danger colorbutton"></button>
+        <button pButton type="button" label="Grabar" (click)="Registrar()" class="p-button-success colorbuttonGuardar" icon="pi pi-save"></button>
+    </ng-template>
+</p-dialog>
 <p-toast></p-toast>

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
@@ -34,14 +34,27 @@ import {TableModule} from 'primeng/table';
 import { EvaluacionComponent } from './Pages/evaluacion/evaluacion.component';
 import { MensajeriaComponent } from './Pages/mensajeria/mensajeria.component';
 import { CargarProveedoresComponent } from './Pages/cargar-proveedores/cargar-proveedores.component'; 
-import { ResetPaswordComponent } from './Pages/auth/seguridad/reset-pasword/reset-pasword.component';
+import { SeguridadModule } from './Pages/auth/seguridad/seguridad.module';
+import { SegmentacionComponent } from './Pages/segmentacion/segmentacion.component'; 
+ import { DialogModule } from "primeng/dialog";
+import { ReclamosComponent } from './Pages/reclamos/reclamos.component';
+import { CuentionarioComponent } from './Pages/cuentionario/cuentionario.component';
+import { PreguntasComponent } from './Pages/preguntas/preguntas.component';
+import { SeguimientoComponent } from './Pages/seguimiento/seguimiento.component';
+import { RevicionComponent } from './Pages/revicion/revicion.component';
+import { SegevaluacionComponent } from './Pages/segevaluacion/segevaluacion.component';
+import { SeguimientoReclamosComponent } from './Pages/seguimiento-reclamos/seguimiento-reclamos.component';
+import { MisReclamosComponent } from './Pages/mis-reclamos/mis-reclamos.component';
+import {MessageModule} from 'primeng/message';
+import { TipificacionReclamoComponent } from './Pages/tipificacion-reclamo/tipificacion-reclamo.component';
 @NgModule({
   declarations: [
     AppComponent,
     LayoutPrincipalComponent,
     TopbarComponent,
     SidebarComponent,
-    InicioComponent, MenuComponent, MenuTopComponent, UsuarioComponent, CategoriaComponent, GrupoComponent, EstadoComponent, AreaComponent, PerfilesComponent, EvaluacionComponent, MensajeriaComponent, CargarProveedoresComponent,  ResetPaswordComponent
+    InicioComponent, MenuComponent, MenuTopComponent, UsuarioComponent, CategoriaComponent, GrupoComponent, EstadoComponent, AreaComponent, PerfilesComponent, EvaluacionComponent, MensajeriaComponent, CargarProveedoresComponent, SegmentacionComponent, ReclamosComponent, CuentionarioComponent, PreguntasComponent, SeguimientoComponent, RevicionComponent, SegevaluacionComponent, SeguimientoReclamosComponent, MisReclamosComponent, TipificacionReclamoComponent,  
+    
   ],
   imports: [
     BrowserModule,
@@ -60,6 +73,10 @@ import { ResetPaswordComponent } from './Pages/auth/seguridad/reset-pasword/rese
     MenubarModule,
     CardModule,
     TableModule,
+    SeguridadModule, 
+    DialogModule,
+    ReactiveFormsModule,
+    MessageModule
   ],
   providers: [
 

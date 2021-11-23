@@ -14,7 +14,10 @@ export class AuthService {
     return this.http.post(environment.URL + 'api/Login/ValidacionUsuario', params);
   }
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient, private router: Router) {
+
+
+   }
 
   saveToken(token: string) {
   
@@ -77,5 +80,20 @@ export class AuthService {
   
   login(user: any) {
     return this.request(user);
+  } 
+   
+  Validtoken(params:any){
+    return this.http.post(environment.URL +'api/General/validarToken', params)
   }
+
+  
+  isLoggedToken(params:any) {
+
+
+    const validarToken = this.Validtoken(params).subscribe((res:any)=>{
+      console.log(res)
+    });
+    return validarToken;
+  }
+
 }

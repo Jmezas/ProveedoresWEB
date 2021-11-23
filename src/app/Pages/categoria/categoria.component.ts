@@ -10,10 +10,15 @@ import { Router } from '@angular/router';
 })
 export class CategoriaComponent implements OnInit {
   nombre: string | undefined;
+  displayBasic: boolean;
+  selectedCustomers: any[] = [];
+  loading: boolean = false;
+  listaToal:any[]=[]
   constructor( private apiService:MantenimientoService
     ,private messageService: MessageService,private router:Router) { }
 
   ngOnInit(): void {
+    this.lista()
   }
 
   Volver(){
@@ -27,6 +32,19 @@ export class CategoriaComponent implements OnInit {
       console.log(resp.Value.split('|')[1])
       this.messageService.add({severity:resp.status, summary: "", detail:resp.Value});
       this.nombre=''; 
+      this.lista();
+      this.displayBasic=false;
     })
   }
+  lista(){
+    let numero =4;
+    this.apiService.GetListaMantenimiento(numero).subscribe((rep:any)=>{
+     
+      this.listaToal=rep
+  
+    })
+  }
+  showBasicDialog() {
+    this.displayBasic = true;
+}
 }

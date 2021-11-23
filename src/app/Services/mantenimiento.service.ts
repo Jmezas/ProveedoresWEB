@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { combo } from '../Models/combo'; 
 import { environment } from '../../environments/environment'
+import { proceso } from '../Models/Mantenimiento';
+import { usuario } from '../Models/Usuario';
 @Injectable({
   providedIn: 'root'
 })
@@ -28,13 +30,21 @@ export class MantenimientoService {
   CreateEvaluacion(params: any) {
     return this.http.post(environment.URL +'api/Mantenimiento/evaluacion', params);
   }
-  GetCombo(params: any) {
-    console.log(params)
+  GetCombo(params: any) { 
     return this.http.get<combo[]>(environment.URL +'api/General/combo/'+ params);
 
   }
 
   CreatePerfil(params: any) {
     return this.http.post(environment.URL +'api/Mantenimiento/perfil', params);
+  }
+
+  GetListaMantenimiento(params: any) {
+     
+    return this.http.get<proceso[]>(environment.URL +'api/Mantenimiento/ListaMan/'+ params);
+  }
+  GetListaUsuarios() {
+     
+    return this.http.get<usuario[]>(environment.URL +'api/Mantenimiento/ListaUsuario');
   }
 }

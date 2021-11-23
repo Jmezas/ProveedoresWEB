@@ -12,10 +12,15 @@ import { Router } from '@angular/router';
 export class EvaluacionComponent implements OnInit {
 
   nombre: string | undefined;
+  displayBasic: boolean;
+  selectedCustomers: any[] = [];
+  loading: boolean = false;
+  listaToal:any[]=[]
   constructor( private apiService:MantenimientoService
     ,private messageService: MessageService,private router:Router) { }
 
   ngOnInit(): void {
+    this.lista()
   }
 
   Registrar(){
@@ -25,10 +30,23 @@ export class EvaluacionComponent implements OnInit {
       console.log(resp.Value)
       this.messageService.add({severity:resp.status, summary: "", detail:resp.Value});
       this.nombre=''; 
+      this.lista();
+      this.displayBasic=false;
     })
   }
 
   Volver(){ 
     this.router.navigate(['/auth/inicio'])
   }
+  lista(){
+    let numero =5;
+    this.apiService.GetListaMantenimiento(numero).subscribe((rep:any)=>{
+     
+      this.listaToal=rep
+  
+    })
+  }
+  showBasicDialog() {
+    this.displayBasic = true;
+}
 }

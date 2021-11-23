@@ -30,6 +30,8 @@ export class LoginComponent implements OnInit {
 
   validarUsuario() {
     //this.dialog.open(LoadingComponent,{ disableClose: true });
+
+    
     this.service.login(this.paramsLogin).subscribe((response: any) => { 
       this.router.navigateByUrl('/auth/inicio');  
 

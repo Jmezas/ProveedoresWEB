@@ -12,9 +12,12 @@ body {
 
 .colorbuttonGuardar {
     background-color: #ca4300 !important;
+    margin: 5px !important;
 }
 
 .colorbutton {
     background-color: #f6f9fc !important;
-    color: black !important;
+    color: black !important; 
+    margin: 5px !important;
+ 
 }

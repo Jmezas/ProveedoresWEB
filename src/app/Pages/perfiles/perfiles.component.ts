@@ -17,8 +17,11 @@ interface Articulo {
 export class PerfilesComponent implements OnInit {
   nombre: string | undefined;
   ListArea: Articulo[] = [];
-  
+  displayBasic: boolean;
   nomArea: Articulo = {};
+  listaToal:any[]=[]
+  selectedCustomers: any[] = [];
+  loading: boolean = false;
   constructor( private apiService:MantenimientoService
     ,private messageService: MessageService,private router:Router) { }
 
@@ -31,8 +34,12 @@ export class PerfilesComponent implements OnInit {
       });
 
     })
+    //listar
+    this.lista();
   }
-
+  showBasicDialog() {
+    this.displayBasic = true;
+}
   Volver(){ 
     this.router.navigate(['/auth/inicio'])
   }
@@ -45,7 +52,17 @@ export class PerfilesComponent implements OnInit {
       console.log(resp.Value)
       this.messageService.add({severity:resp.status, summary: "", detail:resp.Value});
       this.nombre=''; 
+      this.lista();
+      this.displayBasic = false;
     })
   }
 
+  lista(){
+    let numero =6;
+    this.apiService.GetListaMantenimiento(numero).subscribe((rep:any)=>{
+     
+      this.listaToal=rep
+  
+    })
+  }
 }

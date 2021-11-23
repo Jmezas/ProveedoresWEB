@@ -5,6 +5,7 @@ export class usuario{
     usuario?:string;
     pass?:string;
     nombre?:string;
-    correo?:string;
+    correo?:string; 
+    nombrePerfil?:string;
     perfil?:combo[]| undefined;
 }

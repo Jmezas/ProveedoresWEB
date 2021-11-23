@@ -13,4 +13,13 @@ export class ProcesoService {
   UploadProveedor(params: any) {
     return this.http.post(environment.URL +'api/Procesos/uploadProveedor', params);
   }
+
+  //cambiar contraseña
+  UploadPassword(params: any) {
+    return this.http.post(environment.URL +'api/General/cambiarPassword', params);
+  }
+
+  enviarCorreo(params: any){
+    return this.http.post(environment.URL +'api/General/enviarCorreo', params);
+  }
 }

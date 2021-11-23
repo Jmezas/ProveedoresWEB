@@ -10,10 +10,10 @@ const routes: Routes = [
     loadChildren:() => import('./Modules/auth/auth.module').then(m => m.AuthModule) 
   },  
   {
-    path: 'seguridad',
-    component: ResetPaswordComponent,
+    path: 'seguridad', 
     loadChildren: () => import('./Pages/auth/seguridad/seguridad.module').then(m => m.SeguridadModule)
   },
+  
   {
     path:'**',
     redirectTo:'auth',

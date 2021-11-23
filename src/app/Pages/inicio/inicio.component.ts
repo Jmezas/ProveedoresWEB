@@ -1,6 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../Services/Auth.Service';
 
+interface car {
+  usuario?: string;
+  correo?: string; 
+  nombre?: string;
+}
+
 @Component({
   selector: 'app-inicio',
   templateUrl: './inicio.component.html',
@@ -8,13 +14,15 @@ import { AuthService } from '../../Services/Auth.Service';
 })
 export class InicioComponent implements OnInit {
   nombre?:string
-  boxes: Array<number> = new Array(24);
+  boxes: Array<any>
+  ListArea: car[] = [];
   constructor(public auth:AuthService) { }
   
  
   ngOnInit(): void {
-    this.nombre= JSON.parse(this.auth.getUserInfo().user)
-    console.log(this.nombre)
+    
+    this.ListArea.push(JSON.parse(this.auth.getUserInfo().user)); 
+    
   }
  
 }
