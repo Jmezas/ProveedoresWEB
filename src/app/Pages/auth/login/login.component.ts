@@ -17,6 +17,7 @@ export class LoginComponent implements OnInit {
   verPassword: boolean = false;
   btnShowverLogin: boolean = false;
   imagenFondo: string = '';
+  fieldTextType: boolean;
   constructor(
     private _configService: ConfigService
     , private messageService: MessageService
@@ -29,21 +30,23 @@ export class LoginComponent implements OnInit {
   }
 
   validarUsuario() {
-    //this.dialog.open(LoadingComponent,{ disableClose: true });
-
+    //this.dialog.open(LoadingComponent,{ disableClose: true }); 
     
     this.service.login(this.paramsLogin).subscribe((response: any) => { 
+      
       this.router.navigateByUrl('/auth/inicio');  
 
     },
-      (error) => {
-
-        this.messageService.add({ severity: "info", summary: "", detail: "sin permisos" });
+      (error) => { 
+        this.messageService.add({ severity: "info", summary: "", detail:error.error.message });
       });
   }
   
   envio(){
     this.router.navigateByUrl('/seguridad/envioCorreo');  
   }
-
+ 
+  toggleFieldTextType() {
+    this.fieldTextType = !this.fieldTextType;
+  }
 }

@@ -1,6 +1,6 @@
 <app-menu></app-menu>
 <div class="layout-content">
-    <h1 style="text-align: center;padding-top: 10px;">Estado</h1>
+    <h1 style="text-align: center;padding-top: 10px;">Estado Proveedor</h1>
 
     
     <p-divider> </p-divider>
@@ -36,11 +36,11 @@
                    <th style="width: 3rem">
                        <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
                    </th>
-                   <th pSortableColumn="ruc">
+                   <!-- <th pSortableColumn="ruc">
                        <div class="p-d-flex p-jc-between p-ai-center">
                            id 
                        </div>
-                   </th>
+                   </th> -->
                    <th pSortableColumn="Nombre">
                        <div class="p-d-flex p-jc-between p-ai-center">
                           Nombre 
@@ -54,9 +54,9 @@
                    <td>
                        <p-tableCheckbox [value]="customer"></p-tableCheckbox>
                    </td>
-                   <td>
+                   <!-- <td>
                        {{customer.id}}
-                   </td>
+                   </td> -->
                    <td>
                        {{customer.nombre}}
                    </td>

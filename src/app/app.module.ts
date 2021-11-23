@@ -47,6 +47,7 @@ import { SeguimientoReclamosComponent } from './Pages/seguimiento-reclamos/segui
 import { MisReclamosComponent } from './Pages/mis-reclamos/mis-reclamos.component';
 import {MessageModule} from 'primeng/message';
 import { TipificacionReclamoComponent } from './Pages/tipificacion-reclamo/tipificacion-reclamo.component';
+import {PanelModule} from 'primeng/panel';
 @NgModule({
   declarations: [
     AppComponent,
@@ -76,7 +77,8 @@ import { TipificacionReclamoComponent } from './Pages/tipificacion-reclamo/tipif
     SeguridadModule, 
     DialogModule,
     ReactiveFormsModule,
-    MessageModule
+    MessageModule,
+    PanelModule
   ],
   providers: [
 

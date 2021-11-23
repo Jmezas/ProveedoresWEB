@@ -16,6 +16,8 @@ export class ResetPaswordComponent implements OnInit {
   passworord:string
   passordOld:string
   valueToken?:String
+  fieldTextType: boolean;
+  fieldTextType2: boolean;
   public frmSignup: FormGroup;
   constructor(private api:ProcesoService,private messageService: MessageService,private activatedRoute: ActivatedRoute,
     private auth: AuthService,private router: Router, private fb: FormBuilder) { }
@@ -52,7 +54,7 @@ export class ResetPaswordComponent implements OnInit {
   Procesar(){
     
     if(this.passworord===this.passordOld){ 
-      let data=this.frmSignup.value();
+      let data=this.frmSignup.value;
       let cambio:proceso={}
       
     
@@ -72,6 +74,12 @@ export class ResetPaswordComponent implements OnInit {
 
  
    
+  }
+  toggleFieldTextType() {
+    this.fieldTextType = !this.fieldTextType;
+  }
+  toggleFieldTextType2() {
+    this.fieldTextType2 = !this.fieldTextType2;
   }
 }
 

@@ -25,21 +25,16 @@
                 <th style="width: 3rem">
                     <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
                 </th>
-                <th pSortableColumn="ruc">
+                <!-- <th pSortableColumn="ruc">
                     <div class="p-d-flex p-jc-between p-ai-center">
                         id 
                     </div>
-                </th>
+                </th> -->
                 <th pSortableColumn="Nombre">
                     <div class="p-d-flex p-jc-between p-ai-center">
                        Nombre 
                     </div>
-                </th>
-                <th pSortableColumn="Area">
-                    <div class="p-d-flex p-jc-between p-ai-center">
-                        Area 
-                    </div>
-                </th>
+                </th> 
             </tr>
         </ng-template>
         <ng-template pTemplate="body" let-customer>
@@ -47,16 +42,13 @@
                 <td>
                     <p-tableCheckbox [value]="customer"></p-tableCheckbox>
                 </td>
-                <td>
+                <!-- <td>
                     {{customer.id}}
-                </td>
+                </td> -->
                 <td>
                     {{customer.nombre}}
                 </td>
-                <td>
-                    {{customer.value}}
-                </td>
-                  
+              
 
             </tr>
         </ng-template>
@@ -85,20 +77,7 @@
                 </div>
                 
             </div>
-        </div>
-        <div class="centrov">
-            <div class="p-col-12">
-                <div class="form-group row p-grid">
-                    <label for="sedeselecbuscar" class="centrov p-col-3 p-sm-3 col-form-label">
-                        Area :
-                    </label>
-                    <div class="p-col-8 p-sm-8">
-                        <p-dropdown [options]="ListArea" [(ngModel)]="nomArea" name="sForma" optionLabel="name" [filter]="true" filterBy="name" [showClear]="true" placeholder="Seleccionar area">
-                        </p-dropdown>
-                    </div>
-                </div>
-            </div>
-        </div>
+        </div> 
     </p-tabView>
     <ng-template pTemplate="footer">
         <button pButton type="button" label="Volver" (click)="displayBasic=false"  class="p-button-danger colorbutton"></button>

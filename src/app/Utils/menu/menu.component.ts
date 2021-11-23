@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { Router } from '@angular/router';
+import { ProcesoService } from './../../Services/proceso.service';
+import { Menu } from 'src/app/Models/Menu';
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
@@ -8,9 +10,18 @@ import { Router } from '@angular/router';
 })
 export class MenuComponent implements OnInit {
   items!: MenuItem[];
-  constructor(private router:Router) { }
+  items2!: MenuItem[];
+  ListPMenu: Menu[] = []; 
+  constructor(private router:Router, private apiService:ProcesoService) { }
 
   ngOnInit(): void {
+
+    let usuario='admin';
+    this.apiService.ListaMenu(usuario).subscribe((res:any)=>{
+      //this.ListPMenu=res 
+      this.items2=res
+    })
+
     this.items = [
       {
         label: 'Principal',
@@ -18,10 +29,10 @@ export class MenuComponent implements OnInit {
         command:(click)=>{this.router.navigate(['/auth/inicio']);} 
       },
       {
-        label: 'manuales',
+        label: 'Manuales',
         icon: 'pi pi-fw pi-file',
         items: [{
-          label: 'descargar',
+          label: 'Descargar',
           icon: 'pi pi-fw pi-file',
           command:(click)=>{this.router.navigate(['/auth/manuales']);} 
         }
@@ -38,7 +49,7 @@ export class MenuComponent implements OnInit {
         icon: 'pi pi-fw pi-user',
         items: [
           {
-            label: 'revision',
+            label: 'Revisión',
             icon: 'pi pi-fw pi-user-plus',
             command:(click)=>{this.router.navigate(['/auth/revision']);} 
           }
@@ -106,7 +117,7 @@ export class MenuComponent implements OnInit {
             command:(click)=>{this.router.navigate(['/auth/estado']);} 
           },
           {
-            label: 'Estado evaluacion',
+            label: 'Estado Evaluación',
             icon: 'pi pi-fw pi-pencil',
             command:(click)=>{this.router.navigate(['/auth/evaluacion']);} 
           },
@@ -121,11 +132,11 @@ export class MenuComponent implements OnInit {
             icon: 'pi pi-fw pi-pencil', 
             command:(click)=>{this.router.navigate(['/auth/grupo']);} 
           },
-          {
-            label: 'Area',
-            icon: 'pi pi-fw pi-pencil', 
-            command:(click)=>{this.router.navigate(['/auth/area']);} 
-          },
+          // {
+          //   label: 'Area',
+          //   icon: 'pi pi-fw pi-pencil', 
+          //   command:(click)=>{this.router.navigate(['/auth/area']);} 
+          // },
           {
             label: 'Perfil',
             icon: 'pi pi-fw pi-pencil', 
@@ -143,7 +154,7 @@ export class MenuComponent implements OnInit {
             command:(click)=>{this.router.navigate(['/auth/mensaje']);} 
           },
           {
-            label: 'proveedores',
+            label: 'Proveedores',
             icon: 'pi pi-fw pi-pencil', 
             items:[{
               label: 'Carga de prov.',

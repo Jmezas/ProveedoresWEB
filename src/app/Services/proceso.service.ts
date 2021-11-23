@@ -22,4 +22,8 @@ export class ProcesoService {
   enviarCorreo(params: any){
     return this.http.post(environment.URL +'api/General/enviarCorreo', params);
   }
+
+  ListaMenu(params: any){
+    return this.http.get(environment.URL +'api/Login/listMenu?usuario=' + params);
+  }
 }

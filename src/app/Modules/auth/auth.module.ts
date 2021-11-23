@@ -6,7 +6,7 @@ import { AuthRoutingModule } from './auth-routing.module';
 import { ToastModule } from 'primeng/toast';
 import { ConfirmationService } from 'primeng/api';
 import { ButtonModule } from "primeng/button";
-
+import { InputTextModule } from "primeng/inputtext";
 @NgModule({
   declarations: [
     LoginComponent
@@ -17,7 +17,8 @@ import { ButtonModule } from "primeng/button";
     ReactiveFormsModule,
     AuthRoutingModule,
     ToastModule,
-    ButtonModule
+    ButtonModule,
+    InputTextModule
   ],
   providers: [
     ConfirmationService
