@@ -1,4 +1,146 @@
 <app-menu></app-menu>
 <div class="layout-content">
-    <h1 style="text-align: center;padding-top: 10px;">Segmentación</h1>
+    <div class="p-col-12">
+        <div class="form-group row p-grid">
+            <h1 for="Nombre " class="titulo p-col-10 p-sm-10 col-form-label">
+                Segmentación
+            </h1>
+            <div class="p-col-2 p-text-right">
+                <img src="./assets/img/logo.png" alt="Logo MINAGRI" class="img-logo" width="100%">
+            </div>
+        </div>
+    </div>
+
+    <p-divider> </p-divider>
+    <button pButton icon="pi pi-backward" label="Regresar" class="p-button-danger colorbutton"></button>
+    <button pButton icon="pi pi-pencil" class="p-button-danger colorbuttonGuardar" (click)="enviar()" title="Editar"
+        label="Enviar invitación">
+    </button>
+    <div class="p-col-12">
+        <div class="p-grid">
+            <p-table #dt [value]="listaToal" [(selection)]="selectedCustomers" dataKey="id"
+                styleClass="p-datatable-customers" [rowHover]="true" [rows]="10" [showCurrentPageReport]="true"
+                [rowsPerPageOptions]="[10,25,50]" [loading]="loading" [paginator]="true"
+                currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [filterDelay]="0"
+                [globalFilterFields]="['nombre']">
+                <ng-template pTemplate="caption">
+                    <div class="table-header">
+                        Lista
+                        <span class="p-input-icon-left">
+                            <i class="pi pi-search"></i>
+                            <input pInputText type="text" (input)="dt.filterGlobal($event.target.value, 'contains')"
+                                placeholder="buscar global" />
+                        </span>
+                    </div>
+                </ng-template>
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th pSortableColumn="nombre">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                Proveedor
+                            </div>
+                        </th>
+                        <th pSortableColumn="nivel">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                Nivel de dependecia
+                            </div>
+                        </th>
+                        <th pSortableColumn="posicion">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                Posición en el mercado
+                            </div>
+                        </th>
+                        <th pSortableColumn="calidad">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                Calidad & SCM
+                            </div>
+                        </th>
+                        <th pSortableColumn="potencial">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                Potencial valor agregado
+                                Presencial global/local
+                            </div>
+                        </th>
+                        <th pSortableColumn="madurez">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                Madurez
+                            </div>
+                        </th>
+                        <th pSortableColumn="resultado">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                Resultado
+                            </div>
+                        </th>
+                        <th pSortableColumn="tipo">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                Tipo Proveedor
+                            </div>
+                        </th>
+
+                        <th style="width: 3rem">
+                            <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                        </th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-customer>
+                    <tr class="p-selectable-row">
+                        <td>
+                            {{customer.razon_social}}
+                        </td>
+                        <td>
+                            <p-dropdown [options]="ListNodo" [(ngModel)]="customer.nivel" name="nivelSelect"
+                                optionLabel="name" [filter]="true" filterBy="name" [showClear]="true"
+                                placeholder="numero" (ngModelChange)="nivel($event,customer)">
+                            </p-dropdown>
+                        </td>
+                        <td>
+                            <p-dropdown [options]="ListNodo" name="nomPerfil" optionLabel="name" [filter]="true"
+                                filterBy="name" [showClear]="true" placeholder="numero">
+                            </p-dropdown>
+                            <!-- <p-dropdown [options]="days" styleClass="p-column-filter" placeholder="Select Day"
+                                [showClear]="true" [showClear]="true">
+                                <ng-template let-option pTemplate="item">
+                                    <span>{{option.label}}</span>
+                                </ng-template>
+                            </p-dropdown> -->
+                        </td>
+                        <td>
+                            <p-dropdown [options]="ListNodo" name="nomPerfil" optionLabel="name" [filter]="true"
+                                filterBy="name" [showClear]="true" placeholder="numero">
+                            </p-dropdown>
+                        </td>
+                        <td>
+                            <p-dropdown [options]="ListNodo" name="nomPerfil" optionLabel="name" [filter]="true"
+                                filterBy="name" [showClear]="true" placeholder="numero">
+                            </p-dropdown>
+                        </td>
+                        <td>
+                            <p-dropdown [options]="ListNodo" name="nomPerfil" optionLabel="name" [filter]="true"
+                                filterBy="name" [showClear]="true" placeholder="numero">
+                            </p-dropdown>
+                        </td>
+                        <td>
+
+                            {{customer.resultado}}
+
+
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+                            <p-tableCheckbox [value]="customer"></p-tableCheckbox>
+                        </td>
+
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="emptymessage">
+                    <tr>
+                        <td colspan="12">No se encontraron lista</td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+    </div>
 </div>

@@ -3,6 +3,8 @@ import { Proveedores } from 'src/app/Models/proveedores';
 import { ProcesoService } from '../../Services/proceso.service';
 import { MessageService } from 'primeng/api';
 import * as XLSX from 'xlsx'
+import { usuario } from 'src/app/Models/Usuario';
+import { AuthService } from 'src/app/Services/Auth.Service';
 @Component({
   selector: 'app-cargar-proveedores',
   templateUrl: './cargar-proveedores.component.html',
@@ -13,9 +15,14 @@ export class CargarProveedoresComponent implements OnInit {
   listareg: Proveedores[] = [];
   selectedCustomers: any[] = [];
   loading: boolean = false;
-  constructor(private apiProceso: ProcesoService,private messageService: MessageService,) { }
+  Lusuario: usuario = {}
+  nombre?: string
+  constructor(private apiProceso: ProcesoService, private messageService: MessageService, public auth: AuthService) { }
 
   ngOnInit(): void {
+
+    this.Lusuario = JSON.parse(this.auth.getUserInfo().user);
+    this.nombre = this.Lusuario.usuario
   }
 
 
@@ -32,10 +39,10 @@ export class CargarProveedoresComponent implements OnInit {
       let workbook = XLSX.read(binaryData, { type: 'binary', cellDates: true, cellText: true, cellStyles: true });
       workbook.SheetNames.forEach(sheet => {
         this.loading = false;
-        console.log(workbook.Sheets[sheet])
+        console.log(XLSX.utils.sheet_to_json(workbook.Sheets[sheet]))
         this.listareg = XLSX.utils.sheet_to_json(workbook.Sheets[sheet]);
 
-        this.convertedJson = JSON.stringify(this.listareg)
+
 
       })
     }
@@ -43,10 +50,10 @@ export class CargarProveedoresComponent implements OnInit {
 
 
   guardar() {
-    this.convertedJson = JSON.stringify(this.listareg)
-    this.apiProceso.UploadProveedor(this.listareg).subscribe((resp:any) => { 
-        console.log(resp)
-      this.messageService.add({severity:resp.status, summary: "", detail:resp.Value});
+
+    this.apiProceso.UploadProveedor(this.listareg, this.nombre).subscribe((resp: any) => {
+      console.log(resp)
+      this.messageService.add({ severity: resp.status, summary: "", detail: resp.Value });
     })
 
   }

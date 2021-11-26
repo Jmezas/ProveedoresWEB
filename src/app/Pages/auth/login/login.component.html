@@ -7,59 +7,63 @@
                     <div class="p-col-12 p-text-center">
                         <img src="./assets/img/logo.png" alt="Logo MINAGRI" class="img-logo" width="100%">
                     </div>
-    
+
                     <div class="p-col-12 esptop">
                         <div class="formlogin">
                             <div class="p-fluid">
                                 <div class="p-field">
                                     <label class="textLabel">Nombre de usuario</label>
-                                    <input pInputText type="text" autocomplete="off" class="p-col-12" [(ngModel)]="paramsLogin.usuario" placeholder="Ingrese usuario"  (keyup.enter)="validarUsuario()">
+                                    <div class="p-inputgroup p-field">
+                                        <input pInputPassword type="text" autocomplete="off" class="p-col-11"
+                                            [(ngModel)]="paramsLogin.usuario" placeholder="Ingrese usuario"
+                                            (keyup.enter)="validarUsuario()">
+                                    </div>
+
                                 </div>
 
                                 <div class="p-field">
-                                    <label class="textLabel">Password</label>
-                             
-                                <div class="p-inputgroup p-field">  
-                                    <!-- <input type="text" pInputText placeholder="Keyword" >    -->
-                                    <input pInputPassword type="password" autocomplete="off" class="p-col-11" [(ngModel)]="paramsLogin.pass" placeholder="Ingrese password" (keyup.enter)="validarUsuario()" [type]="fieldTextType ? 'text' : 'password'">      
-                                    <!-- <button type="button" pButton pRipple icon="pi pi-eye-slash" class="" (click)="toggleFieldTextType();"></button> -->
-                                    <div class="p-inputgroup" (click)="toggleFieldTextType()">
+                                    <label class="textLabel">Contraseña</label>
+                                    <div class="p-inputgroup p-field">
+                                        <input pInputPassword type="password" autocomplete="off" class="p-col-11"
+                                            [(ngModel)]="paramsLogin.pass" placeholder="Ingrese password"
+                                            (keyup.enter)="validarUsuario()"
+                                            [type]="fieldTextType ? 'text' : 'password'">
 
-                                        <span class="p-inputgroup-addon"><i class="pi"
-                                            [ngClass]="{
+                                        <div class="p-inputgroup" (click)="toggleFieldTextType()">
+
+                                            <span class="p-inputgroup-addon"><i class="pi" [ngClass]="{
                                               'pi-eye-slash': !fieldTextType,
                                               'pi-eye': fieldTextType
-                                            }"
-                                            
-                                         > 
-                                        </i></span>
-                                        
+                                            }">
+                                                </i></span>
+                                        </div>
+
+
+
                                     </div>
-
-
-
                                 </div>
-                            </div>
                                 <!-- <div class="p-field">
                                     <label class="textLabel">Password</label>
                                     <input pInputPassword type="password" autocomplete="off" class="p-col-12" [(ngModel)]="paramsLogin.pass" placeholder="Ingrese password" (keyup.enter)="validarUsuario()">
                                 </div> -->
                             </div>
-    
+
                             <div class="p-fluid p-text-center">
-                                <button pButton type="button" label="¿Olvidaste tu contraseña?" (click)="envio()" class="p-button-link"></button>
-                                
+                                <button pButton type="button" label="¿Olvidaste tu contraseña?" (click)="envio()"
+                                    class="p-button-link"></button>
+
                                 <div class="p-lg-6 p-lg-offset-3 p-col-12 esptop">
-                                    <button pButton type="submit" (click)="validarUsuario();" label="Iniciar sesión" class="p-button-secondary btnLogin"></button>
+                                    <button pButton type="submit" (click)="validarUsuario();" label="Iniciar sesión"
+                                        class="p-button-secondary btnLogin"></button>
                                 </div>
                             </div>
-    
+
                         </div>
                     </div>
-                    
+
                 </div>
             </div>
-            <div class="p-col-12 p-md-2 p-lg-2"></div>                  
+            <div class="p-col-12 p-md-2 p-lg-2"></div>
         </div>
     </div>
 </div>

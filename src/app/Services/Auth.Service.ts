@@ -17,10 +17,10 @@ export class AuthService {
   constructor(private http: HttpClient, private router: Router) {
 
 
-   }
+  }
 
   saveToken(token: string) {
-  
+
     localStorage.setItem('ACCESS_TOKEN', token);
     this.token = token;
   }
@@ -43,8 +43,8 @@ export class AuthService {
     let payload;
     if (token) {
       payload = token.split('.')[1];
-      console.log(JSON.parse(window.atob(payload)))
-      return JSON.parse(window.atob(payload));
+      // return JSON.parse(window.atob(payload));
+      return JSON.parse(decodeURIComponent(escape(window.atob(payload))));
     } else {
       return null;
     }
@@ -63,7 +63,7 @@ export class AuthService {
 
   request(user: any) {
     //const headers = new HttpHeaders({ accept: 'application/json', 'Content-Type': 'application/json', });
-    return this.http.post(environment.URL + 'api/Login/ValidacionUsuario', user).pipe(map((res: any) => { 
+    return this.http.post(environment.URL + 'api/Login/ValidacionUsuario', user).pipe(map((res: any) => {
       if (res.response) {
         // const token = JSON.parse(window.atob(res.auth.split('.')[1]));
         // if (token.user.role === 'ADMIN' || token.user.role === 'CREATOR') {
@@ -77,20 +77,20 @@ export class AuthService {
       return res;
     }));
   }
-  
+
   login(user: any) {
     return this.request(user);
-  } 
-   
-  Validtoken(params:any){
-    return this.http.post(environment.URL +'api/General/validarToken', params)
   }
 
-  
-  isLoggedToken(params:any) {
+  Validtoken(params: any) {
+    return this.http.post(environment.URL + 'api/General/validarToken', params)
+  }
 
 
-    const validarToken = this.Validtoken(params).subscribe((res:any)=>{
+  isLoggedToken(params: any) {
+
+
+    const validarToken = this.Validtoken(params).subscribe((res: any) => {
       console.log(res)
     });
     return validarToken;

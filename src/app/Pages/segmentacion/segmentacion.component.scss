@@ -1,7 +1,7 @@
 .layout-content {
     margin-left: 30px;
     padding-left: 40px;
-    margin-top: 10px;
+    margin-top: 5px;
     margin-right: 90px;
 }
 
@@ -33,15 +33,12 @@
 
 .centrov {
     align-self: center;
-    display: flex;
-    justify-content: center;
-    align-self: center;
-    margin-top: 10px;
 }
 
 .p-dropdown {
     width: 100% !important;
 }
+ 
 
 :host ::ng-deep .custom-spinner .p-progress-spinner-circle {
     animation: custom-progress-spinner-dash 1.5s ease-in-out infinite, custom-progress-spinner-color 6s ease-in-out infinite;
@@ -77,4 +74,17 @@
         stroke-dasharray: 89, 200;
         stroke-dashoffset: -124px;
     }
+}
+.material-icons {
+    display: inline-flex;
+    vertical-align: middle;
+ }
+.img-logo{
+  max-width: 150px;
+  
+}
+.titulo{
+    text-align: center;
+    padding-top: 16px;
+    display:inline;
 }

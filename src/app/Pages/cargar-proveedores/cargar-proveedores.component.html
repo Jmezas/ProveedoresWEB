@@ -1,28 +1,41 @@
 <app-menu></app-menu>
 
 <div class="layout-content">
-    <h1 style="text-align: center;padding-top: 10px;">Cargar Proveedores</h1>
+    <div class="p-col-12">
+        <div class="form-group row p-grid">
+            <h1 for="Nombre " class="titulo p-col-10 p-sm-10 col-form-label">
+                Cargar Proveedores
+            </h1>
+            <div class="p-col-2 p-text-right">
+                <img src="./assets/img/logo.png" alt="Logo MINAGRI" class="img-logo" width="100%">
+            </div>
+        </div>
+    </div>
     <p-divider> </p-divider>
 </div>
 <p-tabView header="Datos generales">
     <div class="form-group row p-grid">
         <div class="p-col-8 p-sm-8">
             <label for="archivo" class="centrov p-col-2 p-sm-2 col-form-label">
-            selecionar archivo:
-        </label>
+                selecionar archivo:
+            </label>
 
-            <input id="my-file-selector" type="file" (change)="fileUploda($event)" name="uploadExcel" accept=".xls,.xlsx">
+            <input id="my-file-selector" type="file" (change)="fileUploda($event)" name="uploadExcel"
+                accept=".xls,.xlsx">
         </div>
 
         <div class="p-col-4 p-sm-4">
-            <button pButton type="button" label="Grabar" (click)="guardar()" class="p-button-success colorbuttonGuardar" icon="pi pi-save"></button>
+            <button pButton type="button" label="Grabar" (click)="guardar()" class="p-button-success colorbuttonGuardar"
+                icon="pi pi-save"></button>
         </div>
     </div>
 
 
 </p-tabView>
 <div class="p-grid">
-    <p-table #dt [value]="listareg" [(selection)]="selectedCustomers" dataKey="idIdProceso" styleClass="p-datatable-customers" [rowHover]="true" [rows]="10" [showCurrentPageReport]="true" [rowsPerPageOptions]="[10,25,50]" [loading]="loading" [paginator]="true"
+    <p-table #dt [value]="listareg" [(selection)]="selectedCustomers" dataKey="idIdProceso"
+        styleClass="p-datatable-customers" [rowHover]="true" [rows]="10" [showCurrentPageReport]="true"
+        [rowsPerPageOptions]="[10,25,50]" [loading]="loading" [paginator]="true"
         currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [filterDelay]="0">
         <ng-template pTemplate="caption">
             <div class="table-header">
@@ -147,16 +160,17 @@
                     {{customer.comprador}}
                 </td>
                 <td>
-                    {{customer.evaluador}}
-                </td>
-                <td>
                     {{customer.gasto_proveedor}}
                 </td>
                 <td>
-                    {{customer.fecha_caducidad| date: 'dd/MM/yyyy'}}
+                    {{customer.evaluador}}
+                </td>
+
+                <td>
+                    {{customer.fecha_inicio_proceso| date: 'dd/MM/yyyy'}}
                 </td>
                 <td>
-                    {{customer.fecha_caducidad_1 | date: 'dd/MM/yyyy' }}
+                    {{customer.fecha_inicio_evaluacion | date: 'dd/MM/yyyy' }}
                 </td>
                 <td>
                     {{customer.telefono }}

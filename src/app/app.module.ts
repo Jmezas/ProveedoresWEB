@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
@@ -30,13 +30,13 @@ import { AreaComponent } from './Pages/area/area.component';
 import { PerfilesComponent } from './Pages/perfiles/perfiles.component';
 import { MenubarModule } from 'primeng/menubar';
 import { CardModule } from 'primeng/card';
-import {TableModule} from 'primeng/table';
+import { TableModule } from 'primeng/table';
 import { EvaluacionComponent } from './Pages/evaluacion/evaluacion.component';
 import { MensajeriaComponent } from './Pages/mensajeria/mensajeria.component';
-import { CargarProveedoresComponent } from './Pages/cargar-proveedores/cargar-proveedores.component'; 
+import { CargarProveedoresComponent } from './Pages/cargar-proveedores/cargar-proveedores.component';
 import { SeguridadModule } from './Pages/auth/seguridad/seguridad.module';
-import { SegmentacionComponent } from './Pages/segmentacion/segmentacion.component'; 
- import { DialogModule } from "primeng/dialog";
+import { SegmentacionComponent } from './Pages/segmentacion/segmentacion.component';
+import { DialogModule } from "primeng/dialog";
 import { ReclamosComponent } from './Pages/reclamos/reclamos.component';
 import { CuentionarioComponent } from './Pages/cuentionario/cuentionario.component';
 import { PreguntasComponent } from './Pages/preguntas/preguntas.component';
@@ -45,17 +45,20 @@ import { RevicionComponent } from './Pages/revicion/revicion.component';
 import { SegevaluacionComponent } from './Pages/segevaluacion/segevaluacion.component';
 import { SeguimientoReclamosComponent } from './Pages/seguimiento-reclamos/seguimiento-reclamos.component';
 import { MisReclamosComponent } from './Pages/mis-reclamos/mis-reclamos.component';
-import {MessageModule} from 'primeng/message';
+import { MessageModule } from 'primeng/message';
 import { TipificacionReclamoComponent } from './Pages/tipificacion-reclamo/tipificacion-reclamo.component';
-import {PanelModule} from 'primeng/panel';
+import { PanelModule } from 'primeng/panel';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { NgxSummernoteModule } from 'ngx-summernote';
+import { RequisitosComponent } from './Pages/requisitos/requisitos.component';
 @NgModule({
   declarations: [
     AppComponent,
     LayoutPrincipalComponent,
     TopbarComponent,
     SidebarComponent,
-    InicioComponent, MenuComponent, MenuTopComponent, UsuarioComponent, CategoriaComponent, GrupoComponent, EstadoComponent, AreaComponent, PerfilesComponent, EvaluacionComponent, MensajeriaComponent, CargarProveedoresComponent, SegmentacionComponent, ReclamosComponent, CuentionarioComponent, PreguntasComponent, SeguimientoComponent, RevicionComponent, SegevaluacionComponent, SeguimientoReclamosComponent, MisReclamosComponent, TipificacionReclamoComponent,  
-    
+    InicioComponent, MenuComponent, MenuTopComponent, UsuarioComponent, CategoriaComponent, GrupoComponent, EstadoComponent, AreaComponent, PerfilesComponent, EvaluacionComponent, MensajeriaComponent, CargarProveedoresComponent, SegmentacionComponent, ReclamosComponent, CuentionarioComponent, PreguntasComponent, SeguimientoComponent, RevicionComponent, SegevaluacionComponent, SeguimientoReclamosComponent, MisReclamosComponent, TipificacionReclamoComponent, RequisitosComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -74,15 +77,18 @@ import {PanelModule} from 'primeng/panel';
     MenubarModule,
     CardModule,
     TableModule,
-    SeguridadModule, 
+    SeguridadModule,
     DialogModule,
     ReactiveFormsModule,
     MessageModule,
-    PanelModule
+    PanelModule,
+    NgxSummernoteModule,
+    SweetAlert2Module.forRoot()
   ],
   providers: [
 
-    MessageService],
+    MessageService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

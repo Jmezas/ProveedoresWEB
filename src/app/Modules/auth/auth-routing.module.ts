@@ -9,7 +9,7 @@ import { EstadoComponent } from '../../Pages/estado/estado.component';
 import { PerfilesComponent } from '../../Pages/perfiles/perfiles.component';
 import { EvaluacionComponent } from '../../Pages/evaluacion/evaluacion.component';
 import { MensajeriaComponent } from '../../Pages/mensajeria/mensajeria.component';
-import { CargarProveedoresComponent } from '../../Pages/cargar-proveedores/cargar-proveedores.component'; 
+import { CargarProveedoresComponent } from '../../Pages/cargar-proveedores/cargar-proveedores.component';
 import { InicioComponent } from './../../Pages/inicio/inicio.component';
 import { UsuarioComponent } from './../../Pages/usuario/usuario.component';
 import { SegmentacionComponent } from 'src/app/Pages/segmentacion/segmentacion.component';
@@ -22,6 +22,7 @@ import { SegevaluacionComponent } from 'src/app/Pages/segevaluacion/segevaluacio
 import { SeguimientoReclamosComponent } from 'src/app/Pages/seguimiento-reclamos/seguimiento-reclamos.component';
 import { MisReclamosComponent } from 'src/app/Pages/mis-reclamos/mis-reclamos.component';
 import { TipificacionReclamoComponent } from 'src/app/Pages/tipificacion-reclamo/tipificacion-reclamo.component';
+import { RequisitosComponent } from 'src/app/Pages/requisitos/requisitos.component';
 
 const routes: Routes = [
   {
@@ -33,8 +34,8 @@ const routes: Routes = [
       { path: 'categoria', component: CategoriaComponent },
       { path: 'grupo', component: GrupoComponent },
       { path: 'area', component: AreaComponent },
-      { path: 'estado', component: EstadoComponent }, 
-      { path: 'perfil', component: PerfilesComponent},
+      { path: 'estado', component: EstadoComponent },
+      { path: 'perfil', component: PerfilesComponent },
       { path: 'evaluacion', component: EvaluacionComponent },
       { path: 'mensaje', component: MensajeriaComponent },
       { path: 'carga', component: CargarProveedoresComponent },
@@ -48,10 +49,11 @@ const routes: Routes = [
       { path: 'Reclamoseguimiento', component: SeguimientoReclamosComponent },
       { path: 'misReclamos', component: MisReclamosComponent },
       { path: 'tipiReclamo', component: TipificacionReclamoComponent },
+      { path: 'requisto', component: RequisitosComponent },
       { path: '**', redirectTo: 'login' }
     ]
   },
- 
+
 
 ];
 

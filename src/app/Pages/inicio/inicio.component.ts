@@ -1,28 +1,32 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../Services/Auth.Service';
+import { usuario } from './../../Models/Usuario';
 
 interface car {
   usuario?: string;
-  correo?: string; 
+  correo?: string;
   nombre?: string;
 }
 
 @Component({
   selector: 'app-inicio',
   templateUrl: './inicio.component.html',
-  styleUrls: ['./inicio.component.scss']
+  styleUrls: ['./inicio.component.scss'],
 })
 export class InicioComponent implements OnInit {
-  nombre?:string
+  nombre?: string
   boxes: Array<any>
-  ListArea: car[] = [];
-  constructor(public auth:AuthService) { }
-  
- 
+  Lusuario: usuario = {}
+  constructor(public auth: AuthService) { }
+
+
   ngOnInit(): void {
-    
-    this.ListArea.push(JSON.parse(this.auth.getUserInfo().user)); 
-    
+    //this.ListArea.push(JSON.parse(this.auth.getUserInfo().user));
+
+
+    this.Lusuario = JSON.parse(this.auth.getUserInfo().user);
+    this.nombre = this.Lusuario.nombre
+
   }
- 
+
 }

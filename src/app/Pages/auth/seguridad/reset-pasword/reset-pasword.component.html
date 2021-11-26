@@ -1,5 +1,14 @@
 <div class="layout-content">
-  <h1 style="text-align: center;padding-top: 16px;">Cambiar Contraseña</h1>
+  <div class="p-col-12">
+    <div class="form-group row p-grid">
+      <h1 for="Nombre " class="titulo p-col-10 p-sm-10 col-form-label">
+        Cambiar Contraseña
+      </h1>
+      <div class="p-col-2 p-text-right">
+        <img src="./assets/img/logo.png" alt="Logo MINAGRI" class="img-logo" width="100%">
+      </div>
+    </div>
+  </div>
   <p-tabView>
     <div class="p-col-12">
       <div class="p-grid" name="busquedaavanzada" [formGroup]="frmSignup">
@@ -19,11 +28,13 @@
                 <!-- <button type="button" pButton pRipple icon="pi pi-eye" class="" (click)="toggleFieldTextType();"></button> -->
                 <div class="p-inputgroup" (click)="toggleFieldTextType()">
 
-                  <span class="p-inputgroup-addon"><i class="pi" [ngClass]="{
+                  <span class="p-inputgroup-addon">
+                    <i class="pi" [ngClass]="{
                                       'pi-eye-slash': !fieldTextType,
                                       'pi-eye': fieldTextType
                                     }">
-                    </i></span>
+                    </i>
+                  </span>
 
                 </div>
               </div>

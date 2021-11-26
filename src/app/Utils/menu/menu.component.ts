@@ -11,22 +11,22 @@ import { Menu } from 'src/app/Models/Menu';
 export class MenuComponent implements OnInit {
   items!: MenuItem[];
   items2!: MenuItem[];
-  ListPMenu: Menu[] = []; 
-  constructor(private router:Router, private apiService:ProcesoService) { }
+  ListPMenu: Menu[] = [];
+  constructor(private router: Router, private apiService: ProcesoService) { }
 
   ngOnInit(): void {
 
-    let usuario='admin';
-    this.apiService.ListaMenu(usuario).subscribe((res:any)=>{
+    let usuario = 'admin';
+    this.apiService.ListaMenu(usuario).subscribe((res: any) => {
       //this.ListPMenu=res 
-      this.items2=res
+      this.items2 = res
     })
 
     this.items = [
       {
         label: 'Principal',
         icon: 'pi pi-fw pi-file',
-        command:(click)=>{this.router.navigate(['/auth/inicio']);} 
+        command: (click) => { this.router.navigate(['/auth/inicio']); }
       },
       {
         label: 'Manuales',
@@ -34,15 +34,15 @@ export class MenuComponent implements OnInit {
         items: [{
           label: 'Descargar',
           icon: 'pi pi-fw pi-file',
-          command:(click)=>{this.router.navigate(['/auth/manuales']);} 
+          // command: (click) => { this.router.navigate(['/auth/manuales']); }
         }
-       ]
+        ]
       },
       {
         label: 'Cuestionario',
         icon: 'pi pi-fw pi-file',
-        command:(click)=>{this.router.navigate(['/auth/cuestionario']);} 
-       
+        command: (click) => { this.router.navigate(['/auth/cuestionario']); }
+
       },
       {
         label: 'Seguimiento',
@@ -51,7 +51,7 @@ export class MenuComponent implements OnInit {
           {
             label: 'Revisión',
             icon: 'pi pi-fw pi-user-plus',
-            command:(click)=>{this.router.navigate(['/auth/revision']);} 
+            command: (click) => { this.router.navigate(['/auth/revision']); }
           }
 
         ]
@@ -59,30 +59,30 @@ export class MenuComponent implements OnInit {
       {
         label: 'Evaluación',
         icon: 'pi pi-fw pi-user',
-        command:(click)=>{this.router.navigate(['/auth/Segevaluacion']);} 
-         
-      }, 
+        command: (click) => { this.router.navigate(['/auth/Segevaluacion']); }
+
+      },
       {
         label: 'Reclamos',
         icon: 'pi pi-fw pi-calendar',
-        items: [ 
+        items: [
           {
             label: 'Registro',
             icon: 'pi pi-fw pi-calendar',
-            command:(click)=>{this.router.navigate(['/auth/reclamos']);}  
+            command: (click) => { this.router.navigate(['/auth/reclamos']); }
           },
           {
             label: 'Seguimiento Reclamos',
             icon: 'pi pi-fw pi-calendar',
-            command:(click)=>{this.router.navigate(['/auth/Reclamoseguimiento']);}  
+            command: (click) => { this.router.navigate(['/auth/Reclamoseguimiento']); }
           },
           {
             label: 'Mis Reclamos',
             icon: 'pi pi-fw pi-calendar',
-            command:(click)=>{this.router.navigate(['/auth/misReclamos']);}  
+            command: (click) => { this.router.navigate(['/auth/misReclamos']); }
           }
         ]
-       
+
       },
       {
         label: 'Mantenimiento',
@@ -91,46 +91,47 @@ export class MenuComponent implements OnInit {
           {
             label: 'Cuestionario',
             icon: 'pi pi-fw pi-pencil',
-            command:(click)=>{this.router.navigate(['/auth/cuestionario']);} 
+            command: (click) => { this.router.navigate(['/auth/cuestionario']); }
           },
           {
             label: 'Requisito',
             icon: 'pi pi-fw pi-pencil',
+            command: (click) => { this.router.navigate(['/auth/requisto']) }
           },
           {
             label: 'Preguntas',
             icon: 'pi pi-fw pi-pencil',
-            command:(click)=>{this.router.navigate(['/auth/preguntas']);} 
+            command: (click) => { this.router.navigate(['/auth/preguntas']); }
           },
           {
             label: 'Usuario',
             icon: 'pi pi-fw pi-pencil',
-            command:(click)=>{this.router.navigate(['/auth/usuario']);} 
+            command: (click) => { this.router.navigate(['/auth/usuario']); }
           },
-          {
-            label: 'Compradores',
-            icon: 'pi pi-fw pi-pencil',
-          },
+          // {
+          //   label: 'Compradores',
+          //   icon: 'pi pi-fw pi-pencil',
+          // },
           {
             label: 'Estado proveedor',
             icon: 'pi pi-fw pi-pencil',
-            command:(click)=>{this.router.navigate(['/auth/estado']);} 
+            command: (click) => { this.router.navigate(['/auth/estado']); }
           },
           {
             label: 'Estado Evaluación',
             icon: 'pi pi-fw pi-pencil',
-            command:(click)=>{this.router.navigate(['/auth/evaluacion']);} 
+            command: (click) => { this.router.navigate(['/auth/evaluacion']); }
           },
           {
-            label: 'Categoria',
+            label: 'Categoría',
             icon: 'pi pi-fw pi-pencil',
-           
-            command:(click)=>{this.router.navigate(['/auth/categoria']);} 
+
+            command: (click) => { this.router.navigate(['/auth/categoria']); }
           },
           {
             label: 'Grupo',
-            icon: 'pi pi-fw pi-pencil', 
-            command:(click)=>{this.router.navigate(['/auth/grupo']);} 
+            icon: 'pi pi-fw pi-pencil',
+            command: (click) => { this.router.navigate(['/auth/grupo']); }
           },
           // {
           //   label: 'Area',
@@ -139,48 +140,48 @@ export class MenuComponent implements OnInit {
           // },
           {
             label: 'Perfil',
-            icon: 'pi pi-fw pi-pencil', 
-            command:(click)=>{this.router.navigate(['/auth/perfil']);} 
+            icon: 'pi pi-fw pi-pencil',
+            command: (click) => { this.router.navigate(['/auth/perfil']); }
           },
-         
+
           {
             label: 'Tipificación de reclamos',
-            icon: 'pi pi-fw pi-pencil', 
-            command:(click)=>{this.router.navigate(['/auth/tipiReclamo']);} 
+            icon: 'pi pi-fw pi-pencil',
+            command: (click) => { this.router.navigate(['/auth/tipiReclamo']); }
           },
           {
-            label: 'Catálogo Mensaje',
-            icon: 'pi pi-fw pi-pencil', 
-            command:(click)=>{this.router.navigate(['/auth/mensaje']);} 
+            label: 'Catálogo de Mensajes',
+            icon: 'pi pi-fw pi-pencil',
+            command: (click) => { this.router.navigate(['/auth/mensaje']); }
           },
           {
             label: 'Proveedores',
-            icon: 'pi pi-fw pi-pencil', 
-            items:[{
+            icon: 'pi pi-fw pi-pencil',
+            items: [{
               label: 'Carga de prov.',
-              icon: 'pi pi-fw pi-pencil', 
-              command:(click)=>{this.router.navigate(['/auth/carga']);} 
+              icon: 'pi pi-fw pi-pencil',
+              command: (click) => { this.router.navigate(['/auth/carga']); }
             },
             {
-              label: 'segmentacion',
-              icon: 'pi pi-fw pi-pencil', 
-              command:(click)=>{this.router.navigate(['/auth/segmentacion']);} 
+              label: 'Segmentación',
+              icon: 'pi pi-fw pi-pencil',
+              command: (click) => { this.router.navigate(['/auth/segmentacion']); }
             },
-          ] 
+            ]
           },
-         
-          
+
+
         ]
       },
-    
+
     ];
   }
 
-  salir(){
-    
+  salir() {
+
     this.router.navigate(['/auth/login'])
   }
-  
+
 
 
 }

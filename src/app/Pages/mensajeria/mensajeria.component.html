@@ -1,87 +1,106 @@
 <app-menu></app-menu>
 <div class="layout-content">
-    <h1 style="text-align: center;padding-top: 10px;">Mensajeria</h1>
-
+    <div class="p-col-12">
+        <div class="form-group row p-grid">
+            <h1 for="Nombre " class="titulo p-col-10 p-sm-10 col-form-label">
+                Catálogo de mensajes
+            </h1>
+            <div class="p-col-2 p-text-right">
+                <img src="./assets/img/logo.png" alt="Logo MINAGRI" class="img-logo" width="100%">
+            </div>
+        </div>
+    </div>
 </div>
 <p-divider> </p-divider>
 <p-tabView header="Datos generales">
     <div class="p-grip">
-        <div class="p-col-6">
+        <div class="p-col-12">
             <p-card>
                 <ng-template pTemplate="header">
-                    <b>Acepta los terminos y condiciones:</b>
+                    <b>Acepta los términos y condiciones:</b>
                 </ng-template>
-                Termino A <br/> Termino B <br/> Termino X <br/>
+                <div class="p-col-12">
+                    <div class="summernote" [ngxSummernote]="config" [(ngModel)]="nombre"></div>
+                    <div class="form-group row p-grid">
+                        <div class="p-col-8 p-sm-8">
+                            <!-- <textarea id="float-input" type="text" [(ngModel)]="nombre" pInputText name="nombre">
+                            </textarea> -->
+
+                        </div>
+                    </div>
+                    <button pButton type="button" label="Grabar" class="p-button-success colorbuttonGuardar"
+                        icon="pi pi-save" (click)="Registrar()"></button>
+                </div>
             </p-card>
         </div>
         <div class="p-col-6">
             <p-card>
                 <ng-template pTemplate="header">
-                    <b>Politica de contraseña:</b>
+                    <b>Política de contraseña:</b>
                 </ng-template>
-                Una mayuscula(M) <br/> Una manuscula(M) <br/> Un Numero(1) <br/>carecter especial(1)
+                Una mayúsculas(M) <br /> Una minúscula(M) <br /> Un número(1) <br />Carácter especial(1)
 
             </p-card>
 
         </div>
     </div>
-    <br/>
+    <br />
     <div class="p-grid" name="busquedaavanzada">
-        <div class="p-col-6">
+        <div class="p-col-12">
 
             <p-card>
                 <ng-template pTemplate="header">
                     <b>Tenor de correo 1:</b>
                 </ng-template>
-                <label class="centrov p-col-3 p-sm-3 col-form-label"> estimado</label>
 
-                <div class="p-col-8 p-sm-8">
-                    <input type="text" pInputText [(ngModel)]="emcabezado" (ngModelChange)="concatCabecera($event)" id="sNombre" name="sNombre" class="form-control" placeholder="encabezado" style="width: 100%;" />
+                <div class="p-col-2 p-sm-2">
+                    <input type="text" pInputText [(ngModel)]="dias" (ngModelChange)="concatDias($event)" id="sNombre"
+                        name="sNombre" class="form-control" placeholder="dias" style="width: 100%;" />
                 </div>
-                <div class="p-col-8 p-sm-8">
-                    <input type="text" pInputText [(ngModel)]="mensaje" (ngModelChange)="concatMensaje($event)" id="sNombre" name="sNombre" class="form-control" placeholder="mensaje" style="width: 100%;" />
-                </div>
-                <div class="p-col-8 p-sm-8">
-                    <input type="text" pInputText [(ngModel)]="dias" (ngModelChange)="concatDias($event)" id="sNombre" name="sNombre" class="form-control" placeholder="dias" style="width: 100%;" />
-                </div>
-                <div class="p-col-8 p-sm-8">
-                    <input type="text" pInputText [(ngModel)]="depsedida" (ngModelChange)="concatDespedida($event)" id="sNombre" name="sNombre" class="form-control" placeholder="despedia" style="width: 100%;" />
-                </div>
-                <br>
-                <div class="p-col-8 p-sm-8">
-                    <textarea type="text" pInputText [(ngModel)]="cancatenacion" id="sNombre" name="sNombre" class="form-control" placeholder="despedia" style="width: 100%;"></textarea>
-                </div>
+
+                <div class="summernote" [ngxSummernote]="config" [(ngModel)]="mensaje"></div>
+                <button pButton type="button" label="Grabar" class="p-button-success colorbuttonGuardar"
+                    (click)="Registrartenor1()" icon="pi pi-save">
+                </button>
             </p-card>
-
-
-
-
         </div>
     </div>
-    <br/>
+    <br />
     <div class="p-grid" name="busquedaavanzada">
-        <div class="p-col-6">
-
+        <div class="p-col-12">
             <p-card>
                 <ng-template pTemplate="header">
                     <b>Tenor de correo 2:</b>
                 </ng-template>
-
-                <label class="p-col-3 p-sm-3 col-form-label"> estimado</label>
-                <div class="p-col-8 p-sm-8">
-                    <textarea type="text" pInputText id="sNombre" name="sNombre" class="form-control" placeholder=""></textarea>
-                </div>
-
-                <div class="p-col-1">
-
-                    <button pButton type="button" label="enviar" class="p-button-success colorbuttonGuardar" icon="pi pi-save"></button>
-                </div>
+                <!-- <div class="p-col-8 p-sm-8">
+                    <input type="text" pInputText [(ngModel)]="dias" (ngModelChange)="concatDias($event)" id="sNombre"
+                        name="sNombre" class="form-control" placeholder="dias" style="width: 100%;" />
+                </div> -->
+                <div class="summernote" [ngxSummernote]="config" [(ngModel)]="tenor2"></div>
+                <button pButton type="button" label="Grabar" class="p-button-success colorbuttonGuardar"
+                    (click)="Registrartenor2()" icon="pi pi-save">
+                </button>
             </p-card>
-
-
-
-
+        </div>
+    </div>
+    <div class="p-grid" name="busquedaavanzada">
+        <div class="p-col-12">
+            <p-card>
+                <ng-template pTemplate="header">
+                    <b>Tenor de correo 3:</b>
+                </ng-template>
+                <!-- <div class="p-col-8 p-sm-8">
+                    <input type="text" pInputText [(ngModel)]="dias" (ngModelChange)="concatDias($event)" id="sNombre"
+                        name="sNombre" class="form-control" placeholder="dias" style="width: 100%;" />
+                </div> -->
+                <div class="summernote" [ngxSummernote]="config" [(ngModel)]="tenor3"></div>
+                <button pButton type="button" label="Grabar" class="p-button-success colorbuttonGuardar"
+                    (click)="Registrartenor3()" icon="pi pi-save">
+                </button>
+            </p-card>
         </div>
     </div>
 
 </p-tabView>
+
+<p-toast></p-toast>
